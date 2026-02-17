@@ -12,24 +12,29 @@ const loadCategoryButtons = async () => {
 const displayCategoryButtons = (categories) => {
   const container = document.getElementById("category_buttons_container");
 
-  // All button
   const allBtn = document.createElement("button");
   allBtn.id = "all_products";
-  allBtn.className = "btn btn-outline btn-sm category_btn active_category border border-blue-500";
+  allBtn.className =
+    "btn btn-outline btn-sm category_btn border border-blue-500";
   allBtn.textContent = "All";
   allBtn.addEventListener("click", loadAllProducts);
   container.appendChild(allBtn);
 
-  // Category buttons
+
   categories.forEach((cat) => {
     const btn = document.createElement("button");
     btn.id = `category_btn_${cat}`;
-    btn.className = "btn btn-outline btn-sm category_btn border border-blue-500";
+    btn.className =
+      "btn btn-outline btn-sm category_btn border border-blue-500";
     btn.textContent = makeUpperCase(cat);
     btn.addEventListener("click", () => loadCategoryProducts(cat));
     container.appendChild(btn);
   });
+
+
+  loadAllProducts();
 };
+
 
 const removeActiveClassFromCategoryButton = () => {
   document.querySelectorAll(".category_btn").forEach((btn) => {
@@ -37,7 +42,13 @@ const removeActiveClassFromCategoryButton = () => {
   });
 };
 
-// Loading
+const makeUpperCase = (str) =>
+  str
+    .split(" ")
+    .map((w) => w[0].toUpperCase() + w.slice(1).toLowerCase())
+    .join(" ");
+
+
 const manageLoading = (status) => {
   const loading = document.getElementById("loading_container");
   const productsContainer = document.getElementById("products_card_container");
@@ -50,14 +61,17 @@ const manageLoading = (status) => {
   }
 };
 
-// Load all products on page load
+
 const loadAllProducts = async () => {
   try {
     manageLoading(true);
     const res = await fetch("https://fakestoreapi.com/products");
     const data = await res.json();
+
     removeActiveClassFromCategoryButton();
-    document.getElementById("all_products").classList.add("active_category");
+    const allBtn = document.getElementById("all_products");
+    if (allBtn) allBtn.classList.add("active_category");
+
     displayProducts(data);
   } catch (err) {
     console.error("Error loading products:", err);
@@ -71,10 +85,11 @@ const loadCategoryProducts = async (category) => {
       `https://fakestoreapi.com/products/category/${category}`,
     );
     const data = await res.json();
+
     removeActiveClassFromCategoryButton();
-    document
-      .getElementById(`category_btn_${category}`)
-      .classList.add("active_category");
+    const categoryBtn = document.getElementById(`category_btn_${category}`);
+    if (categoryBtn) categoryBtn.classList.add("active_category");
+
     displayProducts(data);
   } catch (err) {
     console.error("Error loading category products:", err);
@@ -141,12 +156,4 @@ const displayProductModal = (p) => {
 };
 
 
-const makeUpperCase = (str) =>
-  str
-    .split(" ")
-    .map((w) => w[0].toUpperCase() + w.slice(1).toLowerCase())
-    .join(" ");
-
-
 loadCategoryButtons();
-loadAllProducts();
