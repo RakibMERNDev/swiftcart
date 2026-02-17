@@ -15,7 +15,7 @@ const displayCategoryButtons = (categories) => {
   // All button
   const allBtn = document.createElement("button");
   allBtn.id = "all_products";
-  allBtn.className = "btn btn-outline btn-sm category_btn active_category";
+  allBtn.className = "btn btn-outline btn-sm category_btn active_category border border-blue-500";
   allBtn.textContent = "All";
   allBtn.addEventListener("click", loadAllProducts);
   container.appendChild(allBtn);
@@ -24,7 +24,7 @@ const displayCategoryButtons = (categories) => {
   categories.forEach((cat) => {
     const btn = document.createElement("button");
     btn.id = `category_btn_${cat}`;
-    btn.className = "btn btn-outline btn-sm category_btn";
+    btn.className = "btn btn-outline btn-sm category_btn border border-blue-500";
     btn.textContent = makeUpperCase(cat);
     btn.addEventListener("click", () => loadCategoryProducts(cat));
     container.appendChild(btn);
