@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>swiftcart</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar bg-base-100 shadow-sm text-blue-500">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabindex="-1"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+          >
+            <li><a>Home</a></li>
+            <li>
+              <a>Products</a>
+            </li>
+            <li><a>About</a></li>
+            <li><a>Contact</a></li>
+          </ul>
+        </div>
+        <a href="/" class="text-xl text-blue-500">SwiftCart </a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a>Home</a></li>
+          <li>
+            <a href="">Products</a>
+          </li>
+          <li><a>About</a></li>
+          <li><a>Contact</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <a class="btn">Button</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+
+    <section
+      class="hero min-h-screen"
+      style="background-image: url(./public/banner-img.png)"
+    >
+      <div class="hero-overlay"></div>
+      <div class="hero-content text-neutral-content text-center">
+        <div class="max-w-md">
+          <h1 class="mb-5 text-5xl font-bold">Top Picks Just for You</h1>
+          <p class="mb-5">
+            Explore the newest trends in fashion, gadgets, and more. Shop smart
+            and stay stylish with SwiftCart.
+          </p>
+          <button class="btn btn-primary">Shop Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- why chose us -->
+
+    <section id="features" class="w-full bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <!-- Heading -->
+        <div class="text-center mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
+            Our Features
+          </h2>
+          <p class="text-gray-500 mt-2">
+            Everything you need for a smooth and reliable shopping experience.
+          </p>
+        </div>
+
+        <!-- Cards -->
+        <div
+          id="features_container"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        ></div>
+      </div>
+    </section>
+
+
+    <!-- Popular now -->
+
+    <section class="w-full bg-white">
+  <div class="max-w-7xl mx-auto px-4 py-12">
+
+    <!-- Heading -->
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">
+        Popular Right Now
+      </h2>
+      <a href="#" class="text-sm text-indigo-600 hover:underline">
+        View All
+      </a>
+    </div>
+
+    <!-- Cards -->
+    <div
+      id="trending_card_container"
+      class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
+      
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+    <!-- Javascript -->
+    <script src="./src/whychoseus.js"></script>
+    <script src="./src/popularnow.js"></script>
+  </body>
+</html>
